@@ -2,12 +2,35 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+function getConfig() {
+  return {
+    method: 'GET',
+    headers: {
+      'Allow': 'Everything',
+    }
+  };
+}
+
 class App extends Component {
+  getConfigOne() {
+    var config = getConfig();
+    return config;
+  }
+  getConfigTwo() {
+    var config = getConfig();
+    config.method = 'POST';
+    config.headers.Allow = 'This';
+    return config;
+  }
   render() {
+    var config1 = this.getConfigOne();
+    var config2 = this.getConfigTwo();
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <pre>{JSON.stringify(config1)}</pre>
+          <pre>{JSON.stringify(config2)}</pre>
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
