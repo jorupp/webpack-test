@@ -18,6 +18,7 @@ class App extends Component {
   }
   getConfigTwo() {
     var config = getConfig();
+    config.otherMethod = 'POST2';
     config.method = 'POST';
     config.headers.Allow = 'This';
     return config;
